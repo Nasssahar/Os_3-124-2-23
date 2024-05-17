@@ -4,10 +4,25 @@
 #include <stdlib.h>
  
 int main() {
-        int fd[2];
+        int fd[2], result;
         size_t size;
         char string[] = "Hello from pipe!\n";
         char resstring[17];
+        result = fork();
+         if (pipe(fd)<0) {
+                 printf("Ne ydalos sozdat pipe\n");
+                 exit(-1);
+        }
+        if (result < 0) {
+                printf("Ochibka pri zapuske  fork()\n");
+                exit(-1);
+        }
+        else if (result > 0) {
+                if(close(fd[0]<0) {
+                        printf("Ne ydalos zakrit pipe dla chtenia\n");
+                        exit(-1);
+        }
+
         if (pipe(fd)<0) {
                  printf("Ne ydalos sozdat pipe\n");
                  exit(-1);
