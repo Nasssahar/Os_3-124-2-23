@@ -10,10 +10,11 @@ int main() {
         size_t size;
         char string[] = "Gr.3.124.2.23", resstring[13];
         char name[] = "fifo.fifo";
-        if(mknod(name, S_IFIFO | 0666, 0) < 0) {
+/*        if(mknod(name, S_IFIFO | 0666, 0) < 0) {
                 printf("Ne ydalos sozdat FIFO\n");
                 exit(-1);
         }
+*/
         if((result = fork()) < 0) {
                 printf("Ne ydaljs cozdat docherniy proces\n");
                 exit(-1);
